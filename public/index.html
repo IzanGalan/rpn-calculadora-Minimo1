@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPN Calculator Swagger UI</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #f7f4ed;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #1f2933;
+    }
+
+    .topbar {
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #fff8ee, #f1e2c8);
+      border-bottom: 1px solid #d5c3a4;
+    }
+
+    .topbar h1 {
+      margin: 0 0 4px;
+      font-size: 1.6rem;
+    }
+
+    .topbar p {
+      margin: 0;
+      color: #52606d;
+    }
+
+    #swagger-ui {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <h1>RPN Calculator API</h1>
+    <p>Documentación interactiva generada a partir de <code>/dsaApp/openapi.json</code>.</p>
+  </header>
+
+  <div id="swagger-ui"></div>
+
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-standalone-preset.js"></script>
+  <script>
+    window.onload = function () {
+      const currentOrigin = window.location.origin;
+      const apiUrl = currentOrigin + "/dsaApp/openapi.json";
+
+      window.ui = SwaggerUIBundle({
+        url: apiUrl,
+        dom_id: "#swagger-ui",
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "StandaloneLayout"
+      });
+    };
+  </script>
+</body>
+</html>
